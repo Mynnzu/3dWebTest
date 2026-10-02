@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#eeeae2" />
+    <meta
+      name="description"
+      content="An independent study in mechanical watchmaking. Explore the Aether Open Heart in three dimensions, from its beating balance to your own composition."
+    />
+    <title>AETHER — Time, laid bare.</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body data-section="Intro">
+    <a class="skip-link" href="#experience">Skip to the experience</a>
+    <header class="app-header">
+      <a
+        class="brand-link"
+        href="#section-intro"
+        data-section-target="Intro"
+        aria-label="Aether home"
+        ><span class="brand-emblem" aria-hidden="true">✳</span
+        ><span
+          >AETHER<span class="brand-sub">INDEPENDENT HOROLOGY</span></span
+        ></a
+      >
+      <nav class="header-links" aria-label="Main navigation">
+        <a href="#section-disassembly" data-section-target="Disassembly"
+          >The movement</a
+        ><a href="#section-presentation" data-section-target="Presentation"
+          >The craft</a
+        ><a href="#section-configurator" data-section-target="Configurator"
+          >Your composition <span>↗</span></a
+        >
+      </nav>
+      <button
+        id="btn-menu"
+        class="index-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="chapter-nav"
+      >
+        Index <span class="menu-lines" aria-hidden="true"></span>
+      </button>
+    </header>
+    <nav id="chapter-nav" class="chapter-nav" aria-label="Chapters" hidden>
+      <p class="eyebrow">THE OPEN HEART / NINE CHAPTERS</p>
+      <div class="nav-links">
+        <a data-section-target="Intro" href="#section-intro"
+          ><span>01</span>Introduction <i>↗</i></a
+        >
+        <a data-section-target="Disassembly" href="#section-disassembly"
+          ><span>02</span>Inside the calibre <i>↗</i></a
+        >
+        <a data-section-target="Heart" href="#section-heart"
+          ><span>03</span>The beating heart <i>↗</i></a
+        >
+        <a data-section-target="Presentation" href="#section-presentation"
+          ><span>04</span>The architecture <i>↗</i></a
+        >
+        <a data-section-target="Bracelet" href="#section-bracelet"
+          ><span>05</span>A seamless connection <i>↗</i></a
+        >
+        <a data-section-target="Perspectives" href="#section-perspectives"
+          ><span>06</span>Two perspectives <i>↗</i></a
+        >
+        <a data-section-target="Configurator" href="#section-configurator"
+          ><span>07</span>Your composition <i>↗</i></a
+        >
+        <a data-section-target="Reassembly" href="#section-reassembly"
+          ><span>08</span>Coming together <i>↗</i></a
+        >
+        <a data-section-target="Archive" href="#section-archive"
+          ><span>09</span>The editions <i>↗</i></a
+        >
+      </div>
+      <p class="nav-foot">An exploration of time. At your own pace.</p>
+    </nav>
+    <button
+      id="nav-backdrop"
+      class="nav-backdrop"
+      aria-label="Close chapter index"
+      hidden
+    ></button>
+    <div class="stage-art" aria-hidden="true">
+      <div class="stage-orbit orbit-one"></div>
+      <div class="stage-orbit orbit-two"></div>
+      <span class="stage-cross cross-top">+</span
+      ><span class="stage-cross cross-bottom">+</span>
+    </div>
+    <div id="canvas-container">
+      <canvas
+        id="watch-canvas"
+        tabindex="0"
+        role="img"
+        aria-label="Interactive three-dimensional Aether watch. Drag horizontally or use the arrow keys to rotate. Press Home to reset the view."
+      ></canvas>
+    </div>
+    <div class="stage-caption">
+      <span class="status-dot"></span
+      ><span id="stage-label">CAL. AE–321 / OPEN HEART</span
+      ><span class="stage-caption-end">3D STUDY — 001</span>
+    </div>
+    <div class="view-controls">
+      <span id="interaction-hint">DRAG TO EXPLORE</span
+      ><button
+        id="btn-reset"
+        type="button"
+        aria-label="Reset watch rotation"
+        title="Reset view"
+      >
+        ↺</button
+      ><button
+        id="btn-motion"
+        type="button"
+        aria-pressed="false"
+        aria-label="Pause mechanical animation"
+        title="Pause mechanical animation"
+      >
+        Ⅱ
+      </button>
+    </div>
+    <main id="experience" tabindex="-1">
+      <div id="story-scroll-container" aria-hidden="true">
+        <div id="section-intro" class="scroll-step"></div>
+        <div id="section-disassembly" class="scroll-step"></div>
+        <div id="section-heart" class="scroll-step"></div>
+        <div id="section-presentation" class="scroll-step"></div>
+        <div id="section-bracelet" class="scroll-step"></div>
+        <div id="section-perspectives" class="scroll-step"></div>
+        <div id="section-configurator" class="scroll-step"></div>
+        <div id="section-reassembly" class="scroll-step"></div>
+        <div id="section-archive" class="scroll-step"></div>
+      </div>
+      <div class="overlay-layer">
+        <section
+          class="scene-overlay overlay-intro is-visible"
+          data-for-scene="Intro"
+          aria-labelledby="intro-title"
+        >
+          <p class="eyebrow">
+            <span class="tiny-line"></span> THE OPEN HEART COLLECTION
+          </p>
+          <h1 id="intro-title">
+            Time,<br />
+            laid <em>bare.</em>
+          </h1>
+          <p class="intro-description">
+            Nothing to hide. Everything to discover.<br />
+            A study in mechanical precision, revealed<br
+              class="desktop-break"
+            />
+            one extraordinary detail at a time.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="primary-button"
+              href="#section-disassembly"
+              data-section-target="Disassembly"
+              >Explore the calibre <span>↗</span></a
+            ><button
+              id="btn-play-story"
+              class="text-button"
+              type="button"
+              aria-pressed="false"
+            >
+              <span class="play-icon" aria-hidden="true">▷</span
+              ><span class="btn-text">Play the story</span>
+            </button>
+          </div>
+          <div class="intro-specs">
+            <div>
+              <strong>39.7<span>mm</span></strong
+              ><span>CASE DIAMETER</span>
+            </div>
+            <div>
+              <strong>55<span>hrs</span></strong
+              ><span>POWER RESERVE</span>
+            </div>
+            <div><strong>21,600</strong><span>VIBRATIONS / HOUR</span></div>
+          </div>
+          <p class="edition-note">
+            <span>001 —</span> DESIGNED TO BE DISCOVERED
+          </p>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Disassembly"
+          aria-labelledby="disassembly-title"
+          inert
+        >
+          <p class="eyebrow">02 / INSIDE THE CALIBRE</p>
+          <h2 id="disassembly-title">
+            An orchestra.<br />
+            <em>In miniature.</em>
+          </h2>
+          <p class="section-description">
+            Seven layers. One beautifully considered whole. Select a component
+            to discover its part in the movement.
+          </p>
+          <div
+            id="layer-selector"
+            class="layer-selector"
+            role="group"
+            aria-label="Watch components"
+          ></div>
+          <div id="component-card" class="component-card" hidden>
+            <button
+              id="btn-close-card"
+              type="button"
+              aria-label="Close component details"
+            >
+              ×
+            </button>
+            <p class="eyebrow">COMPONENT DETAIL</p>
+            <h3 id="card-title"></h3>
+            <p id="card-desc"></p>
+            <dl>
+              <dt>MATERIAL</dt>
+              <dd id="card-material"></dd>
+              <dt>FINISH</dt>
+              <dd id="card-finish"></dd>
+            </dl>
+          </div>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Heart"
+          aria-labelledby="heart-title"
+          inert
+        >
+          <p class="eyebrow">03 / THE MECHANICAL HEART</p>
+          <h2 id="heart-title">
+            A rhythm<br />
+            <em>all its own.</em>
+          </h2>
+          <p class="section-description">
+            Through a small aperture, a world comes alive. The balance wheel
+            breathes with a steady, mesmerising rhythm.
+          </p>
+          <div class="heart-wave" aria-hidden="true">
+            <svg viewBox="0 0 330 45">
+              <path
+                d="M0 23 H35 Q45 23 50 9 Q60 -6 70 23 T90 23 T110 23 T130 23 T150 23 T170 23 T190 23 T210 23 T230 23 T250 23 T270 23 Q280 38 290 23 H330"
+              />
+            </svg>
+          </div>
+          <dl class="detail-list">
+            <div>
+              <dt>Frequency</dt>
+              <dd>3 Hz / 21,600 vph</dd>
+            </div>
+            <div>
+              <dt>Power reserve</dt>
+              <dd>55 hours</dd>
+            </div>
+            <div>
+              <dt>Jewel bearings</dt>
+              <dd>17 synthetic rubies</dd>
+            </div>
+          </dl>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Presentation"
+          aria-labelledby="craft-title"
+          inert
+        >
+          <p class="eyebrow">04 / THE ARCHITECTURE</p>
+          <h2 id="craft-title">
+            Shaped by light.<br />
+            <em>Defined by detail.</em>
+          </h2>
+          <p class="section-description">
+            Brushed surfaces meet polished edges. A quiet conversation between
+            texture and reflection, in a sculptural steel case.
+          </p>
+          <div class="craft-note">
+            <span>01 — THE FINISH</span>
+            <p>
+              Satin-brushed flanks.<br />
+              Mirror-polished chamfers.<br />
+              A different character at every angle.
+            </p>
+          </div>
+          <p class="small-hint">
+            Drag the timepiece to find your perspective <span>↔</span>
+          </p>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Bracelet"
+          aria-labelledby="bracelet-title"
+          inert
+        >
+          <p class="eyebrow">05 / A SEAMLESS CONNECTION</p>
+          <h2 id="bracelet-title">
+            Every link.<br />
+            <em>Considered.</em>
+          </h2>
+          <p class="section-description">
+            An articulated steel bracelet follows the wrist with effortless
+            fluidity. A refined taper brings balance to every movement.
+          </p>
+          <dl class="detail-list">
+            <div>
+              <dt>Lug width</dt>
+              <dd>19.0 mm</dd>
+            </div>
+            <div>
+              <dt>Construction</dt>
+              <dd>Articulated solid links</dd>
+            </div>
+            <div>
+              <dt>Finish</dt>
+              <dd>Brushed & polished</dd>
+            </div>
+          </dl>
+        </section>
+        <section
+          class="scene-overlay overlay-perspectives"
+          data-for-scene="Perspectives"
+          aria-labelledby="perspectives-title"
+          inert
+        >
+          <p class="eyebrow">06 / TWO PERSPECTIVES</p>
+          <h2 id="perspectives-title">Beauty goes <em>both ways.</em></h2>
+          <div class="perspectives-grid">
+            <div class="perspective-card">
+              <div class="sub-viewport" id="viewport-front"></div>
+              <div class="card-caption">
+                <span>01 / THE FACE</span>
+                <h3>A window into the movement.</h3>
+              </div>
+            </div>
+            <div class="perspective-card">
+              <div class="sub-viewport" id="viewport-rear"></div>
+              <div class="card-caption">
+                <span>02 / THE REVERSE</span>
+                <h3>The architecture within.</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Configurator"
+          aria-labelledby="config-title"
+          inert
+        >
+          <p class="eyebrow">07 / YOUR COMPOSITION</p>
+          <h2 id="config-title">
+            Distinctly<br />
+            <em>yours.</em>
+          </h2>
+          <p class="section-description">
+            A different dial. A warmer accent. Make the Open Heart an expression
+            of your own.
+          </p>
+          <div id="config-groups" class="config-groups"></div>
+          <p
+            id="config-summary-text"
+            class="config-summary"
+            aria-live="polite"
+          ></p>
+          <button id="btn-save-composition" class="text-button" type="button">
+            Save composition <span>↓</span></button
+          ><span id="save-status" class="save-status" role="status"></span>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Reassembly"
+          aria-labelledby="reassembly-title"
+          inert
+        >
+          <p class="eyebrow">08 / COMING TOGETHER</p>
+          <h2 id="reassembly-title">
+            More than<br />
+            <em>the sum.</em>
+          </h2>
+          <p class="section-description">
+            Each element returns to its place. Independent parts become a
+            single, living mechanism. Precision finds its purpose.
+          </p>
+          <div class="reassembly-progress">
+            <div>
+              <span id="reassembly-step-title">COMPONENTS ALIGNING</span
+              ><span id="reassembly-pct-text">0%</span>
+            </div>
+            <div class="progress-track"><div id="reassembly-fill"></div></div>
+          </div>
+          <p class="small-hint">
+            Keep scrolling to bring the calibre together <span>↓</span>
+          </p>
+        </section>
+        <section
+          class="scene-overlay"
+          data-for-scene="Archive"
+          aria-labelledby="archive-title"
+          inert
+        >
+          <p class="eyebrow">09 / THE EDITIONS</p>
+          <h2 id="archive-title">
+            One character.<br />
+            <em>Many expressions.</em>
+          </h2>
+          <p class="section-description">
+            Four compositions, selected by the atelier.<br />
+            Choose a study to see it come to life.
+          </p>
+          <div class="preset-cards">
+            <button class="preset-card" type="button" data-preset="monochrome">
+              <span class="preset-color" style="--swatch: #202626"></span
+              ><span
+                ><strong>Obsidian Steel</strong
+                ><small>Quietly assured.</small></span
+              ><span>↗</span></button
+            ><button class="preset-card" type="button" data-preset="royal">
+              <span class="preset-color" style="--swatch: #233d53"></span
+              ><span
+                ><strong>Midnight Gold</strong
+                ><small>A warmer kind of blue.</small></span
+              ><span>↗</span></button
+            ><button class="preset-card" type="button" data-preset="heritage">
+              <span class="preset-color" style="--swatch: #c2b69c"></span
+              ><span
+                ><strong>Silver & Rose</strong
+                ><small>A contemporary heirloom.</small></span
+              ><span>↗</span></button
+            ><button class="preset-card" type="button" data-preset="phantom">
+              <span class="preset-color" style="--swatch: #294738"></span
+              ><span
+                ><strong>Graphite Phantom</strong
+                ><small>Understated by nature.</small></span
+              ><span>↗</span>
+            </button>
+          </div>
+          <button type="button" id="btn-back-top" class="text-button">
+            Back to the beginning <span>↑</span>
+          </button>
+        </section>
+      </div>
+    </main>
+    <footer class="chapter-footer">
+      <button
+        id="btn-previous"
+        class="chapter-arrow"
+        aria-label="Previous chapter"
+      >
+        ←
+      </button>
+      <div class="chapter-current">
+        <span id="chapter-number">01</span
+        ><span class="chapter-divider">/ 09</span
+        ><span id="chapter-name">Introduction</span>
+      </div>
+      <nav id="chapter-progress" aria-label="Chapter navigation"></nav>
+      <span class="scroll-instruction">SCROLL TO DISCOVER <span>↓</span></span
+      ><button id="btn-next" class="chapter-arrow" aria-label="Next chapter">
+        →
+      </button>
+      <div class="global-progress"><div id="scroll-progress-fill"></div></div>
+    </footer>
+    <div id="loading-screen" class="loading-screen" role="status">
+      <span class="loader-mark">✳</span>
+      <p>AETHER</p>
+      <span id="loader-status">Preparing your timepiece</span>
+    </div>
+    <div id="webgl-fallback" class="webgl-fallback" hidden>
+      <span>✳</span>
+      <h2>A moment of stillness.</h2>
+      <p>
+        The 3D preview is unavailable in this browser. You can still explore the
+        chapters and compose your timepiece.
+      </p>
+      <button id="btn-retry" class="text-button" type="button">
+        Try the 3D preview again ↗
+      </button>
+    </div>
+    <noscript
+      ><div class="noscript">
+        Aether is an interactive 3D watch study. Enable JavaScript to explore
+        its nine chapters and customise the timepiece.
+      </div></noscript
+    >
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
